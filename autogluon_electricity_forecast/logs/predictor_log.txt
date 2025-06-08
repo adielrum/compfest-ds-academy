@@ -1,0 +1,273 @@
+Beginning AutoGluon training... Time limit = 360s
+AutoGluon will save models to 'd:\Projects\compfest\compfest-ds-academy\autogluon_electricity_forecast'
+=================== System Info ===================
+AutoGluon Version:  1.3.1
+Python Version:     3.12.7
+Operating System:   Windows
+Platform Machine:   AMD64
+Platform Version:   10.0.22631
+CPU Count:          12
+GPU Count:          0
+Memory Avail:       0.55 GB / 7.31 GB (7.5%)
+Disk Space Avail:   111.19 GB / 135.74 GB (81.9%)
+===================================================
+Setting presets to: medium_quality
+
+Fitting with arguments:
+{'enable_ensemble': True,
+ 'eval_metric': RMSE,
+ 'hyperparameters': 'light',
+ 'known_covariates_names': ['temperature_2m_max',
+                            'temperature_2m_min',
+                            'apparent_temperature_max',
+                            'apparent_temperature_min',
+                            'sunshine_duration',
+                            'daylight_duration',
+                            'wind_speed_10m_max',
+                            'wind_gusts_10m_max',
+                            'wind_direction_10m_dominant',
+                            'shortwave_radiation_sum',
+                            'et0_fao_evapotranspiration'],
+ 'num_val_windows': 1,
+ 'prediction_length': 849,
+ 'quantile_levels': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9],
+ 'random_seed': 123,
+ 'refit_every_n_windows': 1,
+ 'refit_full': False,
+ 'skip_model_selection': False,
+ 'target': 'electricity_consumption',
+ 'time_limit': 360,
+ 'verbosity': 2}
+
+Inferred time series frequency: 'D'
+Provided train_data has 11688 rows, 4 time series. Median time series length is 2922 (min=2922, max=2922). 
+
+Provided data contains following columns:
+	target: 'electricity_consumption'
+	known_covariates:
+		categorical:        []
+		continuous (float): ['temperature_2m_max', 'temperature_2m_min', 'apparent_temperature_max', 'apparent_temperature_min', 'sunshine_duration', 'daylight_duration', ...]
+
+To learn how to fix incorrectly inferred types, please see documentation for TimeSeriesPredictor.fit
+
+AutoGluon will gauge predictive performance using evaluation metric: 'RMSE'
+	This metric's sign has been flipped to adhere to being higher_is_better. The metric score can be multiplied by -1 to get the metric value.
+===================================================
+
+Starting training. Start time is 2025-06-08 22:34:14
+Models that will be trained: ['Naive', 'SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'ETS', 'Theta', 'Chronos[bolt_small]', 'TemporalFusionTransformer']
+Training timeseries model Naive. Training for up to 38.9s of the 350.3s of remaining time.
+	-151.9713     = Validation score (-RMSE)
+	0.04    s     = Training runtime
+	9.31    s     = Validation (prediction) runtime
+Training timeseries model SeasonalNaive. Training for up to 42.6s of the 340.9s of remaining time.
+	-162.2620     = Validation score (-RMSE)
+	0.04    s     = Training runtime
+	4.23    s     = Validation (prediction) runtime
+Training timeseries model RecursiveTabular. Training for up to 48.1s of the 336.6s of remaining time.
+	-184.1030     = Validation score (-RMSE)
+	0.68    s     = Training runtime
+	8.41    s     = Validation (prediction) runtime
+Training timeseries model DirectTabular. Training for up to 54.6s of the 327.5s of remaining time.
+	-131.0383     = Validation score (-RMSE)
+	0.66    s     = Training runtime
+	0.20    s     = Validation (prediction) runtime
+Training timeseries model ETS. Training for up to 65.3s of the 326.6s of remaining time.
+	-165.9934     = Validation score (-RMSE)
+	0.04    s     = Training runtime
+	6.26    s     = Validation (prediction) runtime
+Training timeseries model Theta. Training for up to 80.1s of the 320.3s of remaining time.
+	-164.2823     = Validation score (-RMSE)
+	0.03    s     = Training runtime
+	3.47    s     = Validation (prediction) runtime
+Training timeseries model Chronos[bolt_small]. Training for up to 105.6s of the 316.8s of remaining time.
+	Warning: Exception caused Chronos[bolt_small] to fail during training... Skipping this model.
+	(MaxRetryError('HTTPSConnectionPool(host=\'cdn-lfs-us-1.hf.co\', port=443): Max retries exceeded with url: /repos/d9/03/d9035cecba2aadd5e8883cfcaf34220d9b04ee6f62ed37ebd0c919e6906cc263/06a6a19bbe74bc10a9cd193bd4bf2bf638ae07f7e0d51653ae7ab8ea968a21dd?response-content-disposition=inline%3B+filename*%3DUTF-8%27%27model.safetensors%3B+filename%3D%22model.safetensors%22%3B&Expires=1749400505&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc0OTQwMDUwNX19LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2RuLWxmcy11cy0xLmhmLmNvL3JlcG9zL2Q5LzAzL2Q5MDM1Y2VjYmEyYWFkZDVlODg4M2NmY2FmMzQyMjBkOWIwNGVlNmY2MmVkMzdlYmQwYzkxOWU2OTA2Y2MyNjMvMDZhNmExOWJiZTc0YmMxMGE5Y2QxOTNiZDRiZjJiZjYzOGFlMDdmN2UwZDUxNjUzYWU3YWI4ZWE5NjhhMjFkZD9yZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPSoifV19&Signature=c8QO6uQzSptxjeBIFxCh4AlVMGMEIw2OBmtAru9XcvjT1rcG6pG4zZNXc52p-Akac7aCtVgkF3W0lAMaCw8By4zUdbP3VA~egm2SoOYWYp1t2S0loDZtUq4yZuXZ53NiOg0R3jcl2l4zS10rKFpKNUa5iL6A~uYmTnt4dp4FDKR625WJAApSLScijkpjohlhiYWd6FMiAG0M7vksAMKU-2SS1YefS6NH5MB5wMEl14V6CjaBIhG5pawvWRB7ZM-CI502Ytsgo7OTzw6P1m4ha87A0FRaUKxr6V1cr1zrahIKw66yCogfZId1z2S~TBcUYklAPdNQ6jfbxnKyHuqQ6w__&Key-Pair-Id=K24J24Z295AEI9 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001E9423405F0>: Failed to resolve \'cdn-lfs-us-1.hf.co\' ([Errno 11001] getaddrinfo failed)"))'), '(Request ID: e6f12f33-e870-4fa2-8cea-8f3eea0a9465)')
+Training timeseries model TemporalFusionTransformer. Training for up to 74.5s of the 149.0s of remaining time.
+	-134.5882     = Validation score (-RMSE)
+	134.16  s     = Training runtime
+	0.42    s     = Validation (prediction) runtime
+Fitting simple weighted ensemble.
+	Ensemble weights: {'DirectTabular': 0.76, 'ETS': 0.23, 'SeasonalNaive': 0.01}
+	-126.3874     = Validation score (-RMSE)
+	1.51    s     = Training runtime
+	10.69   s     = Validation (prediction) runtime
+Training complete. Models trained: ['Naive', 'SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'ETS', 'Theta', 'TemporalFusionTransformer', 'WeightedEnsemble']
+Total runtime: 342.90 s
+Best model: WeightedEnsemble
+Best model score: -126.3874
+Model not specified in predict, will default to the model with the best validation score: WeightedEnsemble
+Beginning AutoGluon training... Time limit = 1200s
+Beginning AutoGluon training... Time limit = 1200s
+AutoGluon will save models to 'd:\Projects\compfest\compfest-ds-academy\autogluon_electricity_forecast'
+AutoGluon will save models to 'd:\Projects\compfest\compfest-ds-academy\autogluon_electricity_forecast'
+=================== System Info ===================
+AutoGluon Version:  1.3.1
+Python Version:     3.12.7
+Operating System:   Windows
+Platform Machine:   AMD64
+Platform Version:   10.0.22631
+CPU Count:          12
+GPU Count:          0
+Memory Avail:       0.52 GB / 7.31 GB (7.1%)
+Disk Space Avail:   111.12 GB / 135.74 GB (81.9%)
+===================================================
+=================== System Info ===================
+AutoGluon Version:  1.3.1
+Python Version:     3.12.7
+Operating System:   Windows
+Platform Machine:   AMD64
+Platform Version:   10.0.22631
+CPU Count:          12
+GPU Count:          0
+Memory Avail:       0.52 GB / 7.31 GB (7.1%)
+Disk Space Avail:   111.12 GB / 135.74 GB (81.9%)
+===================================================
+Setting presets to: medium_quality
+Setting presets to: medium_quality
+
+Fitting with arguments:
+
+Fitting with arguments:
+{'enable_ensemble': True,
+ 'eval_metric': RMSE,
+ 'hyperparameters': 'light',
+ 'known_covariates_names': ['temperature_2m_max',
+                            'temperature_2m_min',
+                            'apparent_temperature_max',
+                            'apparent_temperature_min',
+                            'sunshine_duration',
+                            'daylight_duration',
+                            'wind_speed_10m_max',
+                            'wind_gusts_10m_max',
+                            'wind_direction_10m_dominant',
+                            'shortwave_radiation_sum',
+                            'et0_fao_evapotranspiration'],
+ 'num_val_windows': 1,
+ 'prediction_length': 849,
+ 'quantile_levels': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9],
+ 'random_seed': 123,
+ 'refit_every_n_windows': 1,
+ 'refit_full': False,
+ 'skip_model_selection': False,
+ 'target': 'electricity_consumption',
+ 'time_limit': 1200,
+ 'verbosity': 2}
+
+{'enable_ensemble': True,
+ 'eval_metric': RMSE,
+ 'hyperparameters': 'light',
+ 'known_covariates_names': ['temperature_2m_max',
+                            'temperature_2m_min',
+                            'apparent_temperature_max',
+                            'apparent_temperature_min',
+                            'sunshine_duration',
+                            'daylight_duration',
+                            'wind_speed_10m_max',
+                            'wind_gusts_10m_max',
+                            'wind_direction_10m_dominant',
+                            'shortwave_radiation_sum',
+                            'et0_fao_evapotranspiration'],
+ 'num_val_windows': 1,
+ 'prediction_length': 849,
+ 'quantile_levels': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9],
+ 'random_seed': 123,
+ 'refit_every_n_windows': 1,
+ 'refit_full': False,
+ 'skip_model_selection': False,
+ 'target': 'electricity_consumption',
+ 'time_limit': 1200,
+ 'verbosity': 2}
+
+Inferred time series frequency: 'D'
+Inferred time series frequency: 'D'
+Provided train_data has 11688 rows, 4 time series. Median time series length is 2922 (min=2922, max=2922). 
+Provided train_data has 11688 rows, 4 time series. Median time series length is 2922 (min=2922, max=2922). 
+
+Provided data contains following columns:
+
+Provided data contains following columns:
+	target: 'electricity_consumption'
+	target: 'electricity_consumption'
+	known_covariates:
+	known_covariates:
+		categorical:        []
+		categorical:        []
+		continuous (float): ['temperature_2m_max', 'temperature_2m_min', 'apparent_temperature_max', 'apparent_temperature_min', 'sunshine_duration', 'daylight_duration', ...]
+		continuous (float): ['temperature_2m_max', 'temperature_2m_min', 'apparent_temperature_max', 'apparent_temperature_min', 'sunshine_duration', 'daylight_duration', ...]
+
+To learn how to fix incorrectly inferred types, please see documentation for TimeSeriesPredictor.fit
+
+To learn how to fix incorrectly inferred types, please see documentation for TimeSeriesPredictor.fit
+
+AutoGluon will gauge predictive performance using evaluation metric: 'RMSE'
+
+AutoGluon will gauge predictive performance using evaluation metric: 'RMSE'
+	This metric's sign has been flipped to adhere to being higher_is_better. The metric score can be multiplied by -1 to get the metric value.
+	This metric's sign has been flipped to adhere to being higher_is_better. The metric score can be multiplied by -1 to get the metric value.
+===================================================
+===================================================
+
+Starting training. Start time is 2025-06-08 22:50:45
+
+Starting training. Start time is 2025-06-08 22:50:45
+Models that will be trained: ['Naive', 'SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'ETS', 'Theta', 'Chronos[bolt_small]', 'TemporalFusionTransformer']
+Models that will be trained: ['Naive', 'SeasonalNaive', 'RecursiveTabular', 'DirectTabular', 'ETS', 'Theta', 'Chronos[bolt_small]', 'TemporalFusionTransformer']
+Training timeseries model Naive. Training for up to 133.3s of the 1199.9s of remaining time.
+Training timeseries model Naive. Training for up to 133.3s of the 1199.9s of remaining time.
+	-151.9713     = Validation score (-RMSE)
+	-151.9713     = Validation score (-RMSE)
+	0.04    s     = Training runtime
+	0.04    s     = Training runtime
+	0.09    s     = Validation (prediction) runtime
+	0.09    s     = Validation (prediction) runtime
+Training timeseries model SeasonalNaive. Training for up to 150.0s of the 1199.8s of remaining time.
+Training timeseries model SeasonalNaive. Training for up to 150.0s of the 1199.8s of remaining time.
+	-162.2620     = Validation score (-RMSE)
+	-162.2620     = Validation score (-RMSE)
+	0.03    s     = Training runtime
+	0.03    s     = Training runtime
+	0.08    s     = Validation (prediction) runtime
+	0.08    s     = Validation (prediction) runtime
+Training timeseries model RecursiveTabular. Training for up to 171.4s of the 1199.7s of remaining time.
+Training timeseries model RecursiveTabular. Training for up to 171.4s of the 1199.7s of remaining time.
+	-184.1030     = Validation score (-RMSE)
+	-184.1030     = Validation score (-RMSE)
+	3.00    s     = Training runtime
+	3.00    s     = Training runtime
+	6.89    s     = Validation (prediction) runtime
+	6.89    s     = Validation (prediction) runtime
+Training timeseries model DirectTabular. Training for up to 198.3s of the 1189.8s of remaining time.
+Training timeseries model DirectTabular. Training for up to 198.3s of the 1189.8s of remaining time.
+	-47.3527      = Validation score (-RMSE)
+	-47.3527      = Validation score (-RMSE)
+	1.38    s     = Training runtime
+	1.38    s     = Training runtime
+	0.18    s     = Validation (prediction) runtime
+	0.18    s     = Validation (prediction) runtime
+Training timeseries model ETS. Training for up to 237.6s of the 1188.2s of remaining time.
+Training timeseries model ETS. Training for up to 237.6s of the 1188.2s of remaining time.
+	-165.9934     = Validation score (-RMSE)
+	-165.9934     = Validation score (-RMSE)
+	0.04    s     = Training runtime
+	0.04    s     = Training runtime
+	4.90    s     = Validation (prediction) runtime
+	4.90    s     = Validation (prediction) runtime
+Training timeseries model Theta. Training for up to 295.8s of the 1183.2s of remaining time.
+Training timeseries model Theta. Training for up to 295.8s of the 1183.2s of remaining time.
+	-164.2823     = Validation score (-RMSE)
+	-164.2823     = Validation score (-RMSE)
+	0.05    s     = Training runtime
+	0.05    s     = Training runtime
+	0.39    s     = Validation (prediction) runtime
+	0.39    s     = Validation (prediction) runtime
+Training timeseries model Chronos[bolt_small]. Training for up to 394.3s of the 1182.8s of remaining time.
+Training timeseries model Chronos[bolt_small]. Training for up to 394.3s of the 1182.8s of remaining time.
+	-82.2655      = Validation score (-RMSE)
+	-82.2655      = Validation score (-RMSE)
+	0.06    s     = Training runtime
+	0.06    s     = Training runtime
+	28.99   s     = Validation (prediction) runtime
+	28.99   s     = Validation (prediction) runtime
+Training timeseries model TemporalFusionTransformer. Training for up to 576.9s of the 1153.7s of remaining time.
+Training timeseries model TemporalFusionTransformer. Training for up to 576.9s of the 1153.7s of remaining time.
